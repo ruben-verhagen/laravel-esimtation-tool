@@ -21,7 +21,7 @@
                 </li>
                 <li>
                     <a href="{{url('admin/space')}}">
-                        <i class="fa fa-square-o"></i> Spaces
+                        <i class="fa fa-square-o"></i> Space Names
                     </a>
                 </li>
                 <li>

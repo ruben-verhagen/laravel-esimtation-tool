@@ -13,7 +13,7 @@
 @section('main')
     <div class="page-header">
         <h3>
-            Items
+            Labor & Material Items
 
             <div class="pull-right">
                 <a href="{!!  url('admin/item/create') !!}"

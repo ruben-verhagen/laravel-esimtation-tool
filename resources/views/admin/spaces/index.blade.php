@@ -13,7 +13,7 @@
 @section('main')
     <div class="page-header">
         <h3>
-            Spaces
+            Space Names
 
             <div class="pull-right">
                 <a href="{!!  url('admin/space/create') !!}"
