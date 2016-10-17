@@ -20,6 +20,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{url('admin/space')}}">
+                        <i class="fa fa-square-o"></i> Spaces
+                    </a>
+                </li>
+                <li>
                     <a href="{{url('admin/language')}}">
                         <i class="fa fa-language"></i> Language
                     </a>

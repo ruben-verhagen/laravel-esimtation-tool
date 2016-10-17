@@ -11,7 +11,7 @@ var vendors = '../../vendor/';
 var paths = {
     'jquery': vendors + '/jquery/dist',
     'bootstrap': vendors + '/bootstrap/dist',
-    'bootswatch': vendors + '/bootswatch/simplex',
+    'bootswatch': vendors + '/bootswatch/paper',
     'fontawesome': vendors + '/font-awesome',
     'colorbox': vendors + '/jquery-colorbox',
     'dataTables': vendors + '/datatables/media',
