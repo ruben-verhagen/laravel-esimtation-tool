@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Laravel</a>
+            <a class="navbar-brand" href="#">OFCI</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -16,7 +16,7 @@
                 <li class="{{ (Request::is('/') ? 'active' : '') }}">
                     <a href="{{ url('') }}"><i class="fa fa-home"></i> Home</a>
                 </li>
-                <li class="{{ (Request::is('articles') ? 'active' : '') }}">
+                <!-- <li class="{{ (Request::is('articles') ? 'active' : '') }}">
                     <a href="{{ url('articles') }}">Articles</a>
                 </li>
                 <li class="{{ (Request::is('about') ? 'active' : '') }}">
@@ -24,7 +24,7 @@
                 </li>
                 <li class="{{ (Request::is('contact') ? 'active' : '') }}">
                     <a href="{{ url('contact') }}">Contact</a>
-                </li>
+                </li> -->
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

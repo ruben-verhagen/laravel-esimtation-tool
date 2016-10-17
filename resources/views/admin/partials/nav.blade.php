@@ -6,7 +6,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Laravel V5.1</a>
+        <a class="navbar-brand" href="index.html">OFCI</a>
     </div>
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
@@ -25,6 +25,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{url('admin/item')}}">
+                        <i class="fa fa-legal"></i> Labor & Material Items
+                    </a>
+                </li>
+                <!-- <li>
                     <a href="{{url('admin/language')}}">
                         <i class="fa fa-language"></i> Language
                     </a>
@@ -64,7 +69,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <li>
                     <a href="{{url('admin/user')}}">
                         <i class="glyphicon glyphicon-user"></i> Users

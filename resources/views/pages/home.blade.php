@@ -6,7 +6,7 @@
         <h2>Home Page</h2>
     </div></div>
 
-    @if(count($articles)>0)
+    @if(count($articles)>10)
         <div class="row">
             <h2>News</h2>
             @foreach ($articles as $post)
@@ -49,7 +49,7 @@
         </div>
     @endif
 
-    @if(count($photoAlbums)>0)
+    @if(count($photoAlbums)>10)
         <div class="row">
             <h2>Photos</h2>
             @foreach($photoAlbums as $item)
@@ -75,4 +75,3 @@
     @endif
 
 @endsection
-

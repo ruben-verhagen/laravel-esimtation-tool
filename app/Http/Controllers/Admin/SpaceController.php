@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Input;
-use App\space;
-use App\Http\Requests\Admin\spaceRequest;
+use App\Space;
+use App\Http\Requests\Admin\SpaceRequest;
 use App\Http\Requests\Admin\DeleteRequest;
 use App\Http\Requests\Admin\ReorderRequest;
 use Illuminate\Support\Facades\Auth;

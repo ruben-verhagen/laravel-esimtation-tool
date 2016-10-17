@@ -5,6 +5,7 @@ Route::model('article', 'App\Article');
 Route::model('articlecategory', 'App\ArticleCategory');
 Route::model('language', 'App\Language');
 Route::model('space', 'App\Space');
+Route::model('item', 'App\Item');
 Route::model('photoalbum', 'App\PhotoAlbum');
 Route::model('photo', 'App\Photo');
 Route::model('user', 'App\User');
@@ -32,12 +33,19 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
     # Admin Dashboard
     Route::get('dashboard', 'Admin\DashboardController@index');
 
-    # Language
+    # Space
     Route::get('space/data', 'Admin\SpaceController@data');
     Route::get('space/{space}/show', 'Admin\SpaceController@show');
     Route::get('space/{space}/edit', 'Admin\SpaceController@edit');
     Route::get('space/{space}/delete', 'Admin\SpaceController@delete');
     Route::resource('space', 'Admin\SpaceController');
+
+    # Items
+    Route::get('item/data', 'Admin\ItemController@data');
+    Route::get('item/{item}/show', 'Admin\ItemController@show');
+    Route::get('item/{item}/edit', 'Admin\ItemController@edit');
+    Route::get('item/{item}/delete', 'Admin\ItemController@delete');
+    Route::resource('item', 'Admin\ItemController');
 
     # Language
     Route::get('language/data', 'Admin\LanguageController@data');
