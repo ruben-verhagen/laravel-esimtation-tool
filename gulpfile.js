@@ -22,7 +22,8 @@ var paths = {
     'summernote': vendors + '/summernote/dist',
     'select2': vendors + '/select2/dist',
     'jqueryui':  vendors + '/jquery-ui',
-    'justifiedGallery':  vendors + '/Justified-Gallery/dist/'
+    'justifiedGallery':  vendors + '/Justified-Gallery/dist/',
+    'angular':  vendors + '/angular/',
 };
 
 elixir.config.sourcemaps = false;
@@ -53,15 +54,21 @@ elixir(function(mix) {
         paths.fontawesome + '/css/font-awesome.css',
         paths.bootswatch + '/bootstrap.css',
         paths.colorbox + '/example3/colorbox.css',
-        paths.justifiedGallery + '/css/justifiedGallery.css'
+        paths.justifiedGallery + '/css/justifiedGallery.css',
+        paths.jqueryui + '/themes/base/minified/jquery-ui.min.css',
+        'custom.css'
     ], 'public/css/site.css');
 
     // Merge Site scripts.
     mix.scripts([
         paths.jquery + '/jquery.js',
+        paths.jqueryui + '/ui/jquery-ui.js',
         paths.bootstrap + '/js/bootstrap.js',
         paths.colorbox + '/jquery.colorbox.js',
-        paths.justifiedGallery + '/js/jquery.justifiedGallery.js'
+        paths.justifiedGallery + '/js/jquery.justifiedGallery.js',
+        paths.justifiedGallery + '/js/jquery.justifiedGallery.js',
+        paths.angular + '/angular.js',
+        'app/*.js'
     ], 'public/js/site.js');
 
     // Merge Admin CSSs.

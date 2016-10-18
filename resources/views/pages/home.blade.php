@@ -1,77 +1,57 @@
 @extends('layouts.app')
 @section('title') Home :: @parent @endsection
 @section('content')
-<div class="row">
+<div class="row" ng-controller="EstimationCtrl">
     <div class="page-header">
-        <h2>Home Page</h2>
-    </div></div>
-
-    @if(count($articles)>10)
-        <div class="row">
-            <h2>News</h2>
-            @foreach ($articles as $post)
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <h4>
-                                <strong><a href="{{url('article/'.$post->slug.'')}}">{{
-                                        $post->title }}</a></strong>
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2">
-                            <a href="{{url('news/'.$post->slug.'')}}" class="thumbnail"><img
-                                        src="http://placehold.it/260x180" alt=""></a>
-                        </div>
-                        <div class="col-md-10">
-                            <p>{!! $post->introduction !!}</p>
-
-                            <p>
-                                <a class="btn btn-mini btn-default"
-                                   href="{{url('news/'.$post->slug.'')}}">Read more</a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p></p>
-
-                            <p>
-                                <span class="glyphicon glyphicon-user"></span> by <span
-                                        class="muted">{{ $post->author->name }}</span> | <span
-                                        class="glyphicon glyphicon-calendar"></span> {{ $post->created_at }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
+        <h2>Start Estimation</h2>
+    </div>
+    <div class="col-xs-12">
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="button" class="btn btn-lg btn-primary" title="Click to add a space" ng-click="addSpace()"><i class="fa fa-plus"></i></button>
+          <button type="button" class="btn btn-lg btn-info" ng-click="saveEstimation()"><i class="fa fa-save"></i></button>
         </div>
-    @endif
-
-    @if(count($photoAlbums)>10)
-        <div class="row">
-            <h2>Photos</h2>
-            @foreach($photoAlbums as $item)
-                <div class="col-sm-3">
-                    <div class="row">
-                        <a href="{{url('photo/'.$item->id.'')}}"
-                           class="hover-effect">
-                            @if($item->album_image!="")
-                                <img class="col-sm-12"
-                                        src="{!! url('appfiles/photoalbum/'.$item->folder_id.'/'.$item->album_image) !!}">
-                            @elseif($item->album_image_first!="")
-                                <img class="col-sm-12"
-                                     src="{!! url('appfiles/photoalbum/'.$item->folder_id.'/'.$item->album_image_first) !!}">
-                            @else
-                                <img class="col-sm-12" src="{!! url('appfiles/photoalbum/no_photo.png') !!}">
-                            @endif
-                        </a>
-                        <div class=" col-sm-12">{{$item->name}}</div>
-                    </div>
+      </div>
+      <div class="panel panel-space" ng-repeat="space in spaces">
+          <div class="panel-heading">
+              <div class="row">
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" autocompl-space ng-if="spacesLoaded" ng-model="space.name">
                 </div>
-            @endforeach
+                <div class="col-sm-1 col-xs-2">
+                  <input type="text" class="form-control text-center" ng-model="space.size_x">
+                </div>
+                <div class="col-sm-1 col-xs-2">
+                  <input type="text" class="form-control text-center" ng-model="space.size_y">
+                </div>
+                <div class="col-sm-2 col-xs-4">
+                  <input type="text" readonly class="form-control text-center" value="<% space.size_x * space.size_y %>">
+                </div>
+                <div class="col-sm-2 col-xs-4">
+                  <button type="button" class="btn btn-primary" title="Click to add an item" ng-click="addItem(space)">+</button>
+                  <button type="button" class="btn btn-danger" title="Click to delete this space" ng-click="removeSpace(space)">X</button>
+                </div>
+              </div>
+          </div>
+          <div class="panel-footer">
+              <table class="table">
+                  <tbody>
+                    <tr class="row" ng-repeat="item in space.items">
+                      <td class="col-xs-6 col-sm-offset-1">
+                        <select class="form-control" ng-model="item.obj" ng-change="setPrice(item)" ng-options="option.name for option in item_options track by option.id">
+                          <!-- <option value="">Please choose an item</option> -->
+                        </select>
+                      </td>
+                      <td class="col-sm-2 col-xs-4"><input type="text" readonly class="form-control text-center" value="$ <% item.price | number : 2 %>"></td>
+                      <td class="col-sm-2 col-xs-4"><input type="text" readonly class="form-control text-center" value="$ <% item.price * space.size_x * space.size_y | number : 2 %>"></td>
+                      <td class="col-sm-1 col-xs-4 text-right"><button type="button" class="btn btn-sm btn-secondary" ng-click="removeItem(space, item)"> X </button></td>
+                    </tr>
+                  </tbody>
+              </table>
+          </div>
         </div>
-    @endif
+    </div>
+    <% spaces %>
 
+</div>
 @endsection

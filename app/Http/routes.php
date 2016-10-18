@@ -27,6 +27,10 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
+Route::group(['prefix' => 'api'], function() {
+    Route::get('space', 'APIController@space');
+    Route::get('item', 'APIController@item');
+});
 /***************    Admin routes  **********************************/
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
 

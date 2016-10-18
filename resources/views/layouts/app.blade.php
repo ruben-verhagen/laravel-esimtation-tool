@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="ofciApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="ofciApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="ofciApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="ofciApp" class="no-js"> <!--<![endif]-->
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -16,7 +20,7 @@
     @show
 
 		<link href="{{ asset('css/site.css') }}" rel="stylesheet">
-        <script src="{{ asset('js/site.js') }}"></script>
+    <script src="{{ asset('js/site.js') }}"></script>
 
     @yield('styles')
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -28,10 +32,10 @@
 
     <link rel="shortcut icon" href="{!! asset('assets/site/ico/favicon.ico')  !!} ">
 </head>
-<body>
+<body data-ng-controller="AppCtrl">
 @include('partials.nav')
 
-<div class="container">
+<div class="container" ng-view>
 @yield('content')
 </div>
 @include('partials.footer')
