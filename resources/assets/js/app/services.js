@@ -1,6 +1,6 @@
 
 App.service('OFCIAPIService', function($http, $window) {
-    this.API_URL = '/api';
+    this.API_URL = SITE_URL + '/api';
     this.handleError = function(response) {
       console.log('error', response);
       if (response.status == 401) {

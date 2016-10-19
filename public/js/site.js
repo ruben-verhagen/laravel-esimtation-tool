@@ -62456,7 +62456,7 @@ App.directive('autocomplSpace', function ($compile) {
             $( element ).autocomplete({
               source: space_names,
               change: function( event, ui ) {
-                scope.$parent.spaceSet(scope.$parent['space']);
+                // scope.$parent.spaceSet(scope.$parent['space']);
                 scope.$parent['space']['name'] = $( element ).val();
               }
             });
@@ -62466,7 +62466,7 @@ App.directive('autocomplSpace', function ($compile) {
 
 
 App.service('OFCIAPIService', function($http, $window) {
-    this.API_URL = '/api';
+    this.API_URL = SITE_URL + '/api';
     this.handleError = function(response) {
       console.log('error', response);
       if (response.status == 401) {

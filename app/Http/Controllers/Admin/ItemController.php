@@ -15,7 +15,8 @@ class ItemController extends AdminController {
 
     private $item_types = array(
       'labor' => 'Labor',
-      'material' => 'Material'
+      'material' => 'Material',
+      'other' => 'Other'
     );
     public function __construct()
     {

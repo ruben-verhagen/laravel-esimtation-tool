@@ -155,7 +155,7 @@
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge">{{$users}}</div>
-                            <div>{{ trans("admin/admin.users") }}!</div>
+                            <div>{{ trans("admin/admin.users") }}</div>
                         </div>
                     </div>
                 </div>

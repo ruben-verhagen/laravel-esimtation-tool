@@ -8,7 +8,7 @@ App.directive('autocomplSpace', function ($compile) {
             $( element ).autocomplete({
               source: space_names,
               change: function( event, ui ) {
-                scope.$parent.spaceSet(scope.$parent['space']);
+                // scope.$parent.spaceSet(scope.$parent['space']);
                 scope.$parent['space']['name'] = $( element ).val();
               }
             });

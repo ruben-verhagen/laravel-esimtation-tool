@@ -20,6 +20,9 @@
     @show
 
 		<link href="{{ asset('css/site.css') }}" rel="stylesheet">
+    <script>
+      var SITE_URL = "{{ url('/') }}";
+    </script>
     <script src="{{ asset('js/site.js') }}"></script>
 
     @yield('styles')
