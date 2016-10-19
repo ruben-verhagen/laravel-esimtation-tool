@@ -62409,16 +62409,11 @@ App.controller('EstimationCtrl', ['$scope', '$window', '$location', 'OFCIAPIServ
     });
   };
 
-  $scope.spaceSet = function(space) {
-    // space.size_x = 5;
-    // space.size_y = 5;
-  };
-
   $scope.addSpace = function() {
     $scope.spaces.push({
       name: 'Space ' + ($scope.spaces.length + 1),
-      size_x: 10,
-      size_y: 10,
+      size_x: 0,
+      size_y: 0,
       items: [{ price: 0 }, { price: 0 }]
     });
   };
@@ -62444,6 +62439,9 @@ App.controller('EstimationCtrl', ['$scope', '$window', '$location', 'OFCIAPIServ
     space.items.splice(space.items.indexOf(item), 1);
   };
 
+  $scope.saveEstimation = function() {
+    console.log($scope.spaces);
+  };
   $scope.init();
 
 }]);

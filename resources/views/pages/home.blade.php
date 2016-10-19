@@ -44,14 +44,12 @@
                       </td>
                       <td class="col-sm-2 col-xs-4"><input type="text" readonly class="form-control text-center" value="$ <% item.price | number : 2 %>"></td>
                       <td class="col-sm-2 col-xs-4"><input type="text" readonly class="form-control text-center" value="$ <% item.price * space.size_x * space.size_y | number : 2 %>"></td>
-                      <td class="col-sm-1 col-xs-4 text-right"><button type="button" class="btn btn-sm btn-secondary" ng-click="removeItem(space, item)"> X </button></td>
+                      <td class="col-sm-1 col-xs-4 text-right"><button type="button" class="btn btn-sm btn-danger" ng-click="removeItem(space, item)"> X </button></td>
                     </tr>
                   </tbody>
               </table>
           </div>
         </div>
     </div>
-    <% spaces %>
-
 </div>
 @endsection
