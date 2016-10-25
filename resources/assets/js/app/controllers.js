@@ -9,6 +9,7 @@ App.controller('EstimationCtrl', ['$scope', '$window', '$location', 'OFCIAPIServ
 
   $scope.spaces = [];
   $scope.item_options = [];
+  $scope.total_price = 0;
 
   $scope.spacesLoaded = false;
   $scope.init = function() {
@@ -41,7 +42,7 @@ App.controller('EstimationCtrl', ['$scope', '$window', '$location', 'OFCIAPIServ
   $scope.addItem = function(space) {
     space.items.push({
       price: 0
-    })
+    });
   };
 
   $scope.setPrice = function(item) {
@@ -49,10 +50,23 @@ App.controller('EstimationCtrl', ['$scope', '$window', '$location', 'OFCIAPIServ
       return it.id === item.obj.id;
     });
     item.price = found.length > 0 ? parseFloat(found[0].price) : 0;
+    $scope.calc_total();
   };
 
   $scope.removeItem = function(space, item) {
     space.items.splice(space.items.indexOf(item), 1);
+  };
+
+  $scope.calc_total = function() {
+    var total = 0;
+    angular.forEach($scope.spaces, function(space, key) {
+      console.log(space, key);
+      // total += space.size_y;
+      angular.forEach(space.items, function(item, key) {
+        total += item.price * space.size_x * space.size_y;
+      });
+    });
+    $scope.total_price = total.toFixed(2);
   };
 
   $scope.saveEstimation = function() {

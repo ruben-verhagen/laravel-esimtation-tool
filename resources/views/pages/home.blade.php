@@ -19,10 +19,10 @@
                   <input type="text" class="form-control" autocompl-space ng-if="spacesLoaded" ng-model="space.name">
                 </div>
                 <div class="col-sm-1 col-xs-2">
-                  <input type="text" class="form-control text-center" ng-model="space.size_x">
+                  <input type="text" class="form-control text-center" ng-model="space.size_x" ng-change="calc_total()">
                 </div>
                 <div class="col-sm-1 col-xs-2">
-                  <input type="text" class="form-control text-center" ng-model="space.size_y">
+                  <input type="text" class="form-control text-center" ng-model="space.size_y" ng-change="calc_total()">
                 </div>
                 <div class="col-sm-2 col-xs-4">
                   <input type="text" readonly class="form-control text-center" value="<% space.size_x * space.size_y %>">
@@ -48,6 +48,11 @@
                     </tr>
                   </tbody>
               </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 text-right">
+            <h3>Total: $<% total_price %></h3>
           </div>
         </div>
     </div>
