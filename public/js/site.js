@@ -62444,8 +62444,6 @@ App.controller('EstimationCtrl', ['$scope', '$window', '$location', 'OFCIAPIServ
   $scope.calc_total = function() {
     var total = 0;
     angular.forEach($scope.spaces, function(space, key) {
-      console.log(space, key);
-      // total += space.size_y;
       angular.forEach(space.items, function(item, key) {
         total += item.price * space.size_x * space.size_y;
       });
@@ -62455,7 +62453,15 @@ App.controller('EstimationCtrl', ['$scope', '$window', '$location', 'OFCIAPIServ
 
   $scope.saveEstimation = function() {
     console.log($scope.spaces);
+    var payload = {
+      spaces: $scope.spaces
+    };
+    OFCIAPIService.post('/saveEstimation', payload).then(function(response) {
+      console.log(response);
+    });
+
   };
+
   $scope.init();
 
 }]);
@@ -62506,4 +62512,23 @@ App.service('OFCIAPIService', function($http, $window) {
       // Return the promise to the controller
       return promise;
     };
+
+    this.post = function (endpoint, payload) {
+      var promise = $http.post(this.API_URL + endpoint, payload).then(
+        function (response) {
+          // success handler
+          if (response.data.s === 's') {
+            return response.data;
+          } else {
+            // alert('API Call success, but data says fails');
+            return response.data;
+          }
+        },
+        this.handleError
+      );
+      // Return the promise to the controller
+      return promise;
+    };
+
+
 });

@@ -60,8 +60,6 @@ App.controller('EstimationCtrl', ['$scope', '$window', '$location', 'OFCIAPIServ
   $scope.calc_total = function() {
     var total = 0;
     angular.forEach($scope.spaces, function(space, key) {
-      console.log(space, key);
-      // total += space.size_y;
       angular.forEach(space.items, function(item, key) {
         total += item.price * space.size_x * space.size_y;
       });
@@ -71,7 +69,15 @@ App.controller('EstimationCtrl', ['$scope', '$window', '$location', 'OFCIAPIServ
 
   $scope.saveEstimation = function() {
     console.log($scope.spaces);
+    var payload = {
+      spaces: $scope.spaces
+    };
+    OFCIAPIService.post('/saveEstimation', payload).then(function(response) {
+      console.log(response);
+    });
+
   };
+
   $scope.init();
 
 }]);

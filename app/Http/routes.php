@@ -30,6 +30,8 @@ Route::controllers([
 Route::group(['prefix' => 'api'], function() {
     Route::get('space', 'APIController@space');
     Route::get('item', 'APIController@item');
+
+    Route::post('saveEstimation', 'APIController@saveEstimation');
 });
 /***************    Admin routes  **********************************/
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
