@@ -44,5 +44,21 @@ App.service('OFCIAPIService', function($http, $window) {
       return promise;
     };
 
+    this.put = function (endpoint, payload) {
+      var promise = $http.put(this.API_URL + endpoint, payload).then(
+        function (response) {
+          // success handler
+          if (response.data.s === 's') {
+            return response.data;
+          } else {
+            // alert('API Call success, but data says fails');
+            return response.data;
+          }
+        },
+        this.handleError
+      );
+      // Return the promise to the controller
+      return promise;
+    };
 
 });

@@ -9,6 +9,8 @@ Route::model('item', 'App\Item');
 Route::model('photoalbum', 'App\PhotoAlbum');
 Route::model('photo', 'App\Photo');
 Route::model('user', 'App\User');
+Route::model('estimation', 'App\Estimation');
+
 Route::pattern('id', '[0-9]+');
 Route::pattern('slug', '[0-9a-z-_]+');
 
@@ -22,6 +24,8 @@ Route::get('article/{slug}', 'ArticlesController@show');
 Route::get('video/{id}', 'VideoController@show');
 Route::get('photo/{id}', 'PhotoController@show');
 
+Route::get('estimations/{estimation}', 'EstimationsController@show');
+
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
@@ -31,7 +35,9 @@ Route::group(['prefix' => 'api'], function() {
     Route::get('space', 'APIController@space');
     Route::get('item', 'APIController@item');
 
+    Route::get('estimations/{estimation}', 'APIController@getEstimation');
     Route::post('saveEstimation', 'APIController@saveEstimation');
+    Route::put('estimations/{estimation}', 'APIController@updateEstimation');
 });
 /***************    Admin routes  **********************************/
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {

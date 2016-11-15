@@ -62452,17 +62452,58 @@ App.controller('EstimationCtrl', ['$scope', '$window', '$location', 'OFCIAPIServ
   };
 
   $scope.saveEstimation = function() {
-    console.log($scope.spaces);
+    if ($scope.total_price == 0) {
+      alert('No estimation details found.');
+      return false;
+    }
     var payload = {
       spaces: $scope.spaces
     };
     OFCIAPIService.post('/saveEstimation', payload).then(function(response) {
-      console.log(response);
+      location.href = "/estimations/" + response.estimation_id;
     });
-
   };
 
   $scope.init();
+}]);
+
+
+App.controller('EstimationViewCtrl', ['$scope', '$window', '$location', 'OFCIAPIService', function($scope, $window, $location, OFCIAPIService) {
+
+  $scope.spaces = [];
+  $scope.item_options = [];
+  $scope.total_price = 0;
+
+  $scope.spacesLoaded = false;
+
+  $scope.init = function(estimationId) {
+    $scope.estimationId = estimationId;
+    OFCIAPIService.get('/estimations/' + $scope.estimationId).then(function(response) {
+      $scope.estimation = response.estimation;
+      $scope.calc_total();
+    });
+  };
+
+  $scope.calc_total = function() {
+    var total = 0;
+    angular.forEach($scope.estimation.spaces, function(space, key) {
+      angular.forEach(space.items, function(item, key) {
+        total += item.price * space.size_x * space.size_y;
+      });
+    });
+    $scope.total_price = total.toFixed(2);
+  };
+
+  $scope.save = function() {
+    // $scope.estimation.cc_emails = $scope.estimation.cc_email1 + "," + $scope.estimation.cc_email2 + "," + $scope.estimation.cc_email3;
+    OFCIAPIService.put('/estimations/' + $scope.estimationId, $scope.estimation).then(function(response) {
+      if (response && response.result) {
+        alert('The invoice is successfully sent to the customer');
+      } else {
+        alert('The invoice is NOT successfully sent.');
+      }
+    });
+  };
 
 }]);
 
@@ -62530,5 +62571,21 @@ App.service('OFCIAPIService', function($http, $window) {
       return promise;
     };
 
+    this.put = function (endpoint, payload) {
+      var promise = $http.put(this.API_URL + endpoint, payload).then(
+        function (response) {
+          // success handler
+          if (response.data.s === 's') {
+            return response.data;
+          } else {
+            // alert('API Call success, but data says fails');
+            return response.data;
+          }
+        },
+        this.handleError
+      );
+      // Return the promise to the controller
+      return promise;
+    };
 
 });

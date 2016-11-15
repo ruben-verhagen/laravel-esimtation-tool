@@ -8,8 +8,8 @@
     <div class="col-xs-12">
       <div class="row">
         <div class="col-xs-12">
-          <button type="button" class="btn btn-lg btn-primary" title="Click to add a space" ng-click="addSpace()"><i class="fa fa-plus"></i></button>
-          <button type="button" class="btn btn-lg btn-info" ng-click="saveEstimation()"><i class="fa fa-save"></i></button>
+          <button type="button" class="btn btn-lg btn-primary" title="Click to add a space" ng-click="addSpace()"><i class="fa fa-plus"></i> Add Space</button>
+          <button type="button" class="btn btn-lg btn-info" ng-click="saveEstimation()"><i class="fa fa-save"></i> Save Estimation</button>
         </div>
       </div>
       <div class="panel panel-space" ng-repeat="space in spaces">

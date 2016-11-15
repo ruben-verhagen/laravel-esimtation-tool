@@ -22700,3 +22700,8 @@ input[type=number],
 .panel-space table td {
   border: none !important;
 }
+
+.customer_info {
+  border: 2px solid #999;
+  padding: 15px;
+}
