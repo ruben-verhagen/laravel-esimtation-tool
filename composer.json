@@ -6,7 +6,7 @@
     "type": "project",
     "repositories": [
         {
-             "type": "composer", 
+             "type": "composer",
              "url": "https://packagist.org"
         },
         { "packagist": false }
@@ -17,7 +17,8 @@
         "yajra/laravel-datatables-oracle" : "~5.0",
         "barryvdh/laravel-debugbar": "^2.0@dev",
         "laravelcollective/html": "5.1.*",
-        "cviebrock/eloquent-sluggable": "3.1.4"
+        "cviebrock/eloquent-sluggable": "3.1.4",
+        "tecnickcom/tcpdf": "^6.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

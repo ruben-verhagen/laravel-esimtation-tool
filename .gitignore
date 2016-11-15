@@ -6,3 +6,4 @@ Homestead.json
 composer.lock
 storage
 resources/vendor
+public/invoices

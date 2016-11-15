@@ -62495,10 +62495,10 @@ App.controller('EstimationViewCtrl', ['$scope', '$window', '$location', 'OFCIAPI
   };
 
   $scope.save = function() {
-    // $scope.estimation.cc_emails = $scope.estimation.cc_email1 + "," + $scope.estimation.cc_email2 + "," + $scope.estimation.cc_email3;
     OFCIAPIService.put('/estimations/' + $scope.estimationId, $scope.estimation).then(function(response) {
       if (response && response.result) {
         alert('The invoice is successfully sent to the customer');
+        location.href = response.path;
       } else {
         alert('The invoice is NOT successfully sent.');
       }
