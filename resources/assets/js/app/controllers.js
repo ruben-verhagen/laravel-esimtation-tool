@@ -4,7 +4,6 @@ App.controller('AppCtrl', ['$scope', '$window', '$location', function($scope, $w
   console.log('AppCtrl');
 }]);
 
-
 App.controller('EstimationCtrl', ['$scope', '$window', '$location', 'OFCIAPIService', function($scope, $window, $location, OFCIAPIService) {
 
   $scope.spaces = [];
@@ -76,7 +75,7 @@ App.controller('EstimationCtrl', ['$scope', '$window', '$location', 'OFCIAPIServ
       spaces: $scope.spaces
     };
     OFCIAPIService.post('/saveEstimation', payload).then(function(response) {
-      location.href = "/estimations/" + response.estimation_id;
+      location.href = SITE_URL + "/estimations/" + response.estimation_id;
     });
   };
 
