@@ -1,35 +1,13 @@
-# Laravel Framework 5.1  Bootstrap 3 Starter Site
+# Simple Cost Estimation Tool for Housekeeping Services
 
-## Starter Site based on on Laravel 5.1 and Boostrap 3
-* [Features](#feature1)
+## Built on Laravel 5.1 and Boostrap 3
 * [Requirements](#feature2)
 * [How to install](#feature3)
 * [Application Structure](#feature4)
 * [Troubleshooting](#feature5)
 * [License](#feature6)
 * [Additional information](#feature7)
-* [How Starter site is look like](#feature8)
-* [Advanced Alternatives](#feature9)
 
-<a name="feature1"></a>
-## Starter Site Features:
-* Laravel 5.1.x
-* Twitter Bootstrap 3.x
-* Back-end
-	* Automatic install and setup website.
-	* User management.
-	* Manage languages.
-	* Manage photos and photo albums.
-	* Manage article and article categories.
-    * DataTables dynamic table sorting and filtering.
-    * Colorbox jQuery modal popup.
-    * Add Summernote WYSIWYG in textareas.
-* Front-end
-	* User login, registration
-	* View Photos,Articles, Languages and Users
-	* soon will be more...
-* Packages included:
-	* Datatables Bundle
 
 -----
 <a name="feature2"></a>
@@ -56,7 +34,7 @@
 <a name="step1"></a>
 ### Step 1: Get the code - Download the repository
 
-    https://github.com/mrakodol/Laravel-5-Bootstrap-3-Starter-Site/archive/master.zip
+    https://github.com/ruben-verhagen/laravel-esimtation-tool/archive/master.zip
 
 Extract it in www(or htdocs if you using XAMPP) folder and put it for example in laravel5startersite folder.
 
@@ -152,21 +130,3 @@ This is free software distributed under the terms of the MIT license
 Inspired by and based on [andrew13's Laravel-4-Bootstrap-Starter-Site](https://github.com/andrew13/Laravel-4-Bootstrap-Starter-Site)
 
 ----
-<a name="feature8"></a>
-##How Starter Site is look like
-
-![Index](http://i57.tinypic.com/2yug28x.jpg)
-![Login](http://i58.tinypic.com/r7p4et.jpg)
-![Register new user](http://i61.tinypic.com/fvcz5x.jpg)
-![Admin dashboard](http://i58.tinypic.com/b9g2g1.jpg)
-![Admin users](http://i60.tinypic.com/301hemp.jpg)
-![Admin list users](http://i58.tinypic.com/2ujl5dh.jpg)
-
-----
-<a name="feature9"></a>
-## Advanced alternatives
-If you are interested in advanced starter sites where you can get 70+ admin pages, 20+ frontend pages with color schemes and a CRUD generator then visit below links
-
-[Josh](http://goo.gl/Mnhunr)
-
-[Chandra](http://goo.gl/hk4ut3)
